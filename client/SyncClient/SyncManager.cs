@@ -1,4 +1,8 @@
+﻿using System.IO;
+using System.Net.Http;
+using System;
 using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 public class SyncManager
@@ -36,7 +40,7 @@ public class SyncManager
         if (response.IsSuccessStatusCode)
         {
             var savePath = Path.Combine(syncFolder, filename);
-            await using var fs = new FileStream(savePath, FileMode.Create);
+            using var fs = new FileStream(savePath, FileMode.Create);
             await response.Content.CopyToAsync(fs);
             Console.WriteLine($"Downloaded {filename} to {savePath}");
         }

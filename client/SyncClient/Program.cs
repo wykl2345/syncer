@@ -1,9 +1,13 @@
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 
 class Program
 {
     static async Task Main()
     {
+        Console.WriteLine("Current Directory: " + Directory.GetCurrentDirectory());
+
         var syncer = new SyncManager();
 
         Console.WriteLine("[1] Upload files\n[2] Download file");

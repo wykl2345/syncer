@@ -16,3 +16,6 @@ obj/
 # System
 .DS_Store
 Thumbs.db
+
+# visual studio
+.vs/
